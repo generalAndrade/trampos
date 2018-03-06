@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+    <ModulePrefs title="Integracao SAP Hybris"
+        description="Integracao SAP Hybris"
+        thumbnail="http://localhost:8080/">
+
+        <Require feature="settitle" />
+        <Require feature="dynamic-height" />
+        <Require feature="pubsub-2" />
+        <Require feature="setprefs" />
+    </ModulePrefs>
+
+    <Content type="html">
+        <![CDATA[
+            <!DOCTYPE html>
+            <!-- Styling -->
+            <link rel="stylesheet" href="uccxHybrisNexa.css" type="text/css" />
+            
+            <!-- jQuery -->
+            <script type="text/javascript" src="/desktop/assets/js/jquery.min.js"></script>
+           
+            <!-- Finesse Library -->
+            <script type="text/javascript" src="/desktop/assets/js/finesse.js"></script>
+
+            <!-- Gadget Business Logic -->
+            <script type="text/javascript" src="uccxHybrisNexa.js"></script>
+
+            <body class="claro">
+                <!-- sample gadget -->
+                <div>
+                    <div><span id="responseBody"/></div>
+                    <div><b> Extension: </b><span id="extension"></div>
+                    <div><b> Caller's number: </b><span id="fromAddress"></div>
+                </div>
+            </body>
+
+            <script type="text/javascript">
+                gadgets.HubSettings.onConnect = function () {
+                    finesse.modules.uccxHybrisNexa.init();
+                };
+            </script>
+        ]]>
+    </Content>
+</Module>
